@@ -16,26 +16,30 @@ The invalid directive caused Nginx configuration validation and service startup 
 
 Before applying the configuration, I tested it with:
 
-```sudo nginx -t
+```
+sudo nginx -t
 ```
 
 Nginx reported a syntax/configuration error and identified the affected configuration file and line.
 
 I then attempted to restart the service:
 
-```sudo systemctl restart nginx
+```
+sudo systemctl restart nginx
 ```
 
 The restart failed.
 
 I checked the service state with:
 
-```systemctl status nginx
+```
+systemctl status nginx
 ```
 
 and reviewed recent Nginx logs with:
 
-```journalctl -u nginx --since "5 minutes ago"
+```
+journalctl -u nginx --since "5 minutes ago"
 ```
 
 These confirmed that Nginx could not start because its configuration was invalid.
@@ -50,12 +54,14 @@ Because Nginx validates its configuration before starting, the invalid directive
 
 I removed the invalid directive and retested the configuration:
 
-```sudo nginx -t
+```
+sudo nginx -t
 ```
 
 After the configuration test succeeded, I restarted Nginx:
 
-```sudo systemctl restart nginx
+```
+sudo systemctl restart nginx
 ```
 
 I then verified the service:
@@ -71,7 +77,8 @@ Nginx returned to an active state and successfully served HTTP requests.
 
 Before modifying the configuration, I created a backup:
 
-```sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+```
+sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
 ```
 
 If the configuration could not be repaired quickly, the known-good file could be restored and tested before restarting the service.
