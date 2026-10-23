@@ -57,3 +57,8 @@ This homelab is being used to build practical experience with:
 
 The focus is on building systems, intentionally breaking them, diagnosing failures, and documenting the troubleshooting process.
 
+## Labs & Troubleshooting
+
+- [Linux Permissions Lab](linux/permissions.md) — Explored ownership, directory traversal, `umask`, setgid, sticky bit, and shared group access.
+- [Nginx Troubleshooting](linux/nginx-troubleshooting.md) — Diagnosed invalid configuration failures and compared reload vs restart behavior.
+- [UFW and Tailscale Firewall Troubleshooting](linux/firewall-tailscale-troubleshooting.md) — Investigated why HTTP remained reachable despite UFW's default-deny policy and traced it to Tailscale-installed netfilter rules.
